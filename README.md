@@ -10,6 +10,22 @@ Podríamos hacer una clase Cafe con diferentes atributos como:
 - descafeinado
 - grande, mediano, pequeño
 
+### Diagrama de clases del ejemplo
+```mermaid
+classDiagram
+    App "1" *-- "1..*" BuilderCafe : association 
+    class App{
+        +main()
+    }
+    class BuilderCafe{
+        +build()
+    }
+    BuilderCafe "1" *-- "1" Cafe : association
+    class Cafe{
+        +Cafe()
+    }
+```
+
 Este patrón lo podríamos combinar con el patrón Factory, ya que con este podemos instanciar un objeto dependiendo de lo que necesitemos, por lo tanto,
 con el ejemplo que hemos puesto antes de café, si tenemos
 varias bebidas para poder elegir instanciamos la que nos interesa y esta puede
