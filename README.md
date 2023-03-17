@@ -6,9 +6,28 @@ Poder construir estructuras complejas. Podemos instanciar diferentes objetos hac
 ### Ejemplo
 Podríamos hacer una clase Cafe con diferentes atributos como: 
 - cortado, largo, manchado
-- solo, conLeche, conLecheSoja, conLecheAvena
+- solo, conLeche, conLecheSoja, conLecheAvena, conLecheCondensada
 - descafeinado
 - grande, mediano, pequeño
+- conAzucar, conSacarina, sinNada
+
+Así que tendríamos:
+- #### Clase Cafe
+Declaramos todos los atributos, los getters y setters de cada uno y método toString().
+- #### Clase Buildercafe
+Declaramos como privado un objeto de la clase Cafe, luego tendríamos el constructor y el método build() que nos devuelve un objeto de clase Cafe, el resto de métodos de esta clase
+son los setter de los atributos de la clase pizza pero que devuelven objetos de tipo BuilderCafe.
+- #### Clase Main
+Creamos los objetos que queramos. Por ejemplo:
+
+    Cafe cafeBombon = new BuilderCafe()
+            .setTipoLeche(Cafe.CONDENSADA)
+            .setTamano(Cafe.GRANDE)
+            .build();
+Estamos creando un objeto Cafe, con leche condensada y de tamaño grande, el resto de los atributos toman el valor por defecto que hayamos definido en el constructor, es decir, si nosotros en el cosntructor 
+por defecto pusieramos que el café es de tamaño pequeño, si no lo definimos al crear el objeto, nos creará un café pequeño.
+Los setter nos devuelven un objeto BuilderCafe por lo tanto podemos usar la sintaxis escrita anteriorme, lo más importante de esto
+es el método build() que nos devuelve un objeto de tipo Cafe.
 
 ### Diagrama de clases del ejemplo
 ```mermaid
